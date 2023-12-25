@@ -3,6 +3,14 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 
+# Aşağıda verilen test caselerin hepsini "https://www.saucedemo.com/" sitesinde gerçekleştirmeniz istenmektedir.
+# Test Caseler;
+
+# -Kullanıcı adı ve şifre alanları boş geçildiğinde uyarı mesajı olarak "Epic sadface: Username is required" gösterilmelidir.
+# -Sadece şifre alanı boş geçildiğinde uyarı mesajı olarak "Epic sadface: Password is required" gösterilmelidir.
+# -Kullanıcı adı "locked_out_user" şifre alanı "secret_sauce" gönderildiğinde "Epic sadface: Sorry, this user has been locked out." mesajı gösterilmelidir.
+# -Kullanıcı adı "standard_user" şifre "secret_sauce" gönderildiğinde kullanıcı "/inventory.html" sayfasına gönderilmelidir. Giriş yapıldıktan sonra kullanıcıya gösterilen ürün sayısı "6" adet olmalıdır.
+
 class Test_SauceDemo:
     def test_invalid_login(self):
         driver = webdriver.Chrome()
@@ -75,10 +83,19 @@ class Test_SauceDemo:
         loginButton = driver.find_element(By.ID, "login-button")
         loginButton.click()
         sleep(3)
+        current_Url = driver.current_url
+        expected_Url = "https://www.saucedemo.com/inventory.html"
+        if current_Url == expected_Url:
+            print("Doğru sayfadasınız:", current_Url)
+        else:
+            print("Yanlış sayfaya yönlendirildiniz. Şu anki URL:", current_Url)
+        sleep(3)
         listOfProducts = driver.find_elements(By.CLASS_NAME,"inventory_item")
         testResult = len(listOfProducts) == 6
-        sleep(5)
+        sleep(3)
         print(f"Test Sonucu: {testResult}" )
+
+
 
 
 testClass = Test_SauceDemo()
