@@ -56,7 +56,7 @@ class Test_LoginClass:
         assert errorMessage.text == "Epic sadface: Sorry, this user has been locked out."
 
     #case 4-Kullanıcı adı "standard_user" şifre "secret_sauce" gönderildiğinde kullanıcı "/inventory.html" sayfasına gönderilmelidir. Giriş yapıldıktan sonra kullanıcıya gösterilen ürün sayısı "6" adet olmalıdır.
-    def test_succsesful_login(self):
+    def test_successful_login(self):
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, "user-name")))
         usernameInput.send_keys("standard_user")
         usernameInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, "password")))
