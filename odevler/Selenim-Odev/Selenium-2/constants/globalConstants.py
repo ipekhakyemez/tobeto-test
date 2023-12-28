@@ -1,0 +1,7 @@
+BASE_URL = "https://www.saucedemo.com"
+LOGIN_XLSX = "data/login_data.xlsx"
+USERNAME_ID = "user-name"
+PASSWORD_ID = "password"
+LOGIN_BUTTON_ID = "login-button"
+EMPTY_ERROR_MESSAGE_XPATH = "//*[@id='login_button_container']/div/form/div[3]/h3"
+EMPTY_ERROR_MESSAGE_TEXT = "Epic sadface: Username is required"
