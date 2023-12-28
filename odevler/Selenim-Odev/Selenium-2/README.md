@@ -13,3 +13,5 @@ Echo: Bir mesajı konsol veya log'a yazdırır.
 Execute Script: JavaScript kodunu çalıştırır.
 Pause: Testi belirli bir süre duraklatır.
 
+
+Bu komutlar, web tarayıcısında test senaryoları oluşturmak için kullanılır. Her bir komut, belirli bir web elementi üzerinde bir eylem gerçekleştirir veya bir kontrol yapar. Bu komutları bir araya getirerek test senaryoları oluşturabilirsiniz.
